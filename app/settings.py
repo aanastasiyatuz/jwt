@@ -1,13 +1,13 @@
 from pathlib import Path
 from datetime import timedelta
+from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
+SECRET_KEY = config("SECRET_KEY")
 
-SECRET_KEY = 'django-insecure-#^g(b=f=a#q(w^db8z(109((*94tr*#$+nbg#_5ax+a0$8h^bk'
+DEBUG = False
 
-DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['10.128.0.5', '104.154.71.130']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,7 +53,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': BASE_DIR / config("DB"),
     }
 }
 
