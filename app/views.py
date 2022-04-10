@@ -1,12 +1,21 @@
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse, HttpResponseForbidden
 from rest_framework.decorators import api_view
+from django.shortcuts import render
 
+def main(request):
+    return render(request, 'base.html')
+
+@api_view(["POST"])
 def Register(request):
-    if request.method == 'POST':
-        User = get_user_model()
-        User.objects.create_user(username=request.POST.get("username"), password=request.POST.get("password"))
+    User = get_user_model()
+    un = request.POST.get("username")
+    pw = request.POST.get("password")
+    print(un, pw, request.POST)
+    if un and pw:
+        User.objects.create_user(username=un, password=pw)
         return HttpResponse("successfully signed up!")
+    return HttpResponseForbidden("'username' and 'password' is required")
 
 @api_view(["GET"])
 def Check(request):
