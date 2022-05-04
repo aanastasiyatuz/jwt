@@ -4,3 +4,4 @@ djangorestframework-jwt
 djangorestframework-simplejwt
 python-decouple
 django-cors-headers
+gunicorn
