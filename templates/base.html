@@ -9,43 +9,58 @@
 <body>
     <h1>JWT Auth API</h1>
     <h2>URLS:</h2>
-    <ul>
-        <li>
-            <h3>'register/' - register new user</h3>
+    <ul style="display: flex; list-style: none; justify-content: space-around;padding: 0;">
+        <li style="width:20vw">
+            <h3><p style="color: rgb(255, 123, 0); display: inline;">'register/'</p> - register new user</h3>
             <h4>
-                POST request
+                <p style="color: rgb(19, 37, 119);">
+                    POST request
+                </p>
+                <br>
+                body:
                 {
-                    "username":"some_username",
-                    "password":"some_password" 
+                    "username":"<i>some_username</i>",
+                    "password":"<i>some_password</i>" 
                 }
             </h4>
         </li>
-        <li>
-            <h3>'api/token/' - authenticate a user (returns access and refresh token)</h3>
+        <li style="width:20vw">
+            <h3><p style="color: rgb(255, 123, 0); display: inline;">'api/token/'</p> - authenticate a user<br>(returns access and refresh token)</h3>
             <h4>
-                POST request
+                <p style="color: rgb(19, 37, 119);">
+                    POST request
+                </p>
+                <br>
+                body:
                 {
-                    "username":"some_username",
-                    "password":"some_password" 
+                    "username":"<i>some_username</i>",
+                    "password":"<i>some_password</i>" 
                 }
             </h4>
         </li>
-        <li>
-            <h3>'api/token/refresh/' - refresh expired token (access (10 minutes), refresh (1 day))</h3>
+        <li style="width:20vw">
+            <h3><p style="color: rgb(255, 123, 0); display: inline;">'api/token/refresh/'</p> - refresh expired token<br>(access (10 minutes),<br>refresh (1 day))</h3>
             <h4>
-                POST request
+                <p style="color: rgb(19, 37, 119);">
+                    POST request
+                </p>
+                <br>
+                body:
                 {
-                    "refresh":"<strong>refresh_token</strong>",
+                    "refresh":"<i>refresh_token</i>",
                 }
             </h4>
         </li>
-        <li>
-            <h3>'check-token/' - check you are using token correctly</h3>
+        <li style="width:20vw">
+            <h3><p style="color: rgb(255, 123, 0); display: inline;">'check-token/'</p> - check you are using token correctly</h3>
             <h4>
-                POST request
+                <p style="color: rgb(19, 37, 119);">
+                    POST request
+                </p>
+                <br>
                 headers:
                 {
-                    "Authorization": "Bearer <strong>access_token</strong>"
+                    "Authorization": "Bearer <i>access_token</i>"
                 }
             </h4>
         </li>
