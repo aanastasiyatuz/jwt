@@ -10,10 +10,45 @@
     <h1>JWT Auth API</h1>
     <h2>URLS:</h2>
     <ul>
-        <li><h3>'register/' - register new user</h3></li>
-        <li><h3>'api/token/' - authenticate a user (returns access and refresh token)</h3></li>
-        <li><h3>'api/token/refresh/' - refresh expired token (access (10 minutes), refresh (1 day))</h3></li>
-        <li><h3>'check-token/' - check you are using token correctly</h3></li>
+        <li>
+            <h3>'register/' - register new user</h3>
+            <h4>
+                POST request
+                {
+                    "username":"some_username",
+                    "password":"some_password" 
+                }
+            </h4>
+        </li>
+        <li>
+            <h3>'api/token/' - authenticate a user (returns access and refresh token)</h3>
+            <h4>
+                POST request
+                {
+                    "username":"some_username",
+                    "password":"some_password" 
+                }
+            </h4>
+        </li>
+        <li>
+            <h3>'api/token/refresh/' - refresh expired token (access (10 minutes), refresh (1 day))</h3>
+            <h4>
+                POST request
+                {
+                    "refresh":"<strong>refresh_token</strong>",
+                }
+            </h4>
+        </li>
+        <li>
+            <h3>'check-token/' - check you are using token correctly</h3>
+            <h4>
+                POST request
+                headers:
+                {
+                    "Authorization": "Bearer <strong>access_token</strong>"
+                }
+            </h4>
+        </li>
     </ul>
 </body>
 </html>
