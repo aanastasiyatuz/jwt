@@ -17,7 +17,7 @@ def Register(request):
             return HttpResponseBadRequest("user with such 'username' already exists")
         User.objects.create_user(username=un, password=pw)
         return HttpResponse("successfully signed up!")
-    return HttpResponseForbidden("'username' and 'password' is required")
+    return HttpResponseForbidden("use form-data\nor\n'username' and 'password' is required")
 
 @api_view(["GET"])
 def Check(request):
