@@ -11,6 +11,7 @@ def Register(request):
     User = get_user_model()
     un = request.POST.get("username")
     pw = request.POST.get("password")
+    print(un, pw, request.POST)
     if un and pw:
         if User.objects.filter(username=un).exists():
             return HttpResponseBadRequest("user with such 'username' already exists")
