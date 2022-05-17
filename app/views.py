@@ -5,6 +5,10 @@ from django.shortcuts import render
 
 def main(request):
     users = get_user_model().objects.all()
+    if users.count() % 4 != 0:
+        users = [*users]
+        for _ in range(4-(len(users)%4)):
+            users.append({'username':''})
     return render(request, 'base.html', locals())
 
 @api_view(["POST"])
