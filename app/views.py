@@ -4,8 +4,7 @@ from rest_framework.decorators import api_view
 from django.shortcuts import redirect, render
 
 def main(request):
-    users = get_user_model().objects.all()
-    print(users)
+    users = get_user_model().objects.exclude(is_superuser=True)
     if users.count() % 4 != 0:
         users = [*users]
         for _ in range(4-(len(users)%4)):
