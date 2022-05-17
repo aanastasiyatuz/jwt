@@ -65,5 +65,11 @@
             </h4>
         </li>
     </ul>
+    <h3>Existing users:</h3>
+    <ul style="display: flex; list-style: none; justify-content: space-around;padding: 0;flex-wrap: wrap;">
+        {% for u in users %}
+            <li style="width:20vw">{{ u.username }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>

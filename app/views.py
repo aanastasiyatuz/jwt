@@ -4,14 +4,14 @@ from rest_framework.decorators import api_view
 from django.shortcuts import render
 
 def main(request):
-    return render(request, 'base.html')
+    users = get_user_model().objects.all()
+    return render(request, 'base.html', locals())
 
 @api_view(["POST"])
 def Register(request):
     User = get_user_model()
     un = request.POST.get("username")
     pw = request.POST.get("password")
-    print(un, pw, request.POST)
     if un and pw:
         if User.objects.filter(username=un).exists():
             return HttpResponseBadRequest("user with such 'username' already exists")
