@@ -1,10 +1,11 @@
 from django.contrib.auth import get_user_model
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from rest_framework.decorators import api_view
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 def main(request):
     users = get_user_model().objects.all()
+    print(users)
     if users.count() % 4 != 0:
         users = [*users]
         for _ in range(4-(len(users)%4)):
@@ -27,3 +28,8 @@ def Register(request):
 def Check(request):
     if request.user.is_authenticated: return HttpResponse("using token")
     return HttpResponseForbidden("token invalid or expired")
+
+@api_view(['GET'])
+def delete_user(request, id):
+    get_user_model().objects.get(id=id).delete()
+    return redirect('main')

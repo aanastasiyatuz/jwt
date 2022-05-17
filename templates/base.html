@@ -68,7 +68,9 @@
     <h3>Existing users:</h3>
     <ul style="display: flex; list-style: none; justify-content: space-around;padding: 0;flex-wrap: wrap;">
         {% for u in users %}
-            <li style="width:20vw">{{ u.username }}</li>
+            <li style="width:20vw;display: flex;justify-content: space-between;">
+                <p>{{ u.username }}</p> <p>{% if u.id %}<a href="{% url 'delete' u.id %}"><button>Delete</button></a>{% endif %}</p>
+            </li>
         {% endfor %}
     </ul>
 </body>
