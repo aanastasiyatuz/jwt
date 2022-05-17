@@ -2,6 +2,13 @@ from django.contrib.auth import get_user_model
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from rest_framework.decorators import api_view
 from django.shortcuts import redirect, render
+from rest_framework.response import Response
+
+@api_view(['GET'])
+def all(request):
+    users = get_user_model().objects.all()
+    data = [u.username for u in users]
+    return Response(data)
 
 def main(request):
     users = get_user_model().objects.exclude(is_superuser=True)

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
-from .views import Check, Register, main, delete_user
+from .views import Check, Register, main, delete_user, all
 from django.conf.urls.static  import static
 from django.conf import settings
 
@@ -13,6 +13,7 @@ urlpatterns = [
     path('register/', Register),
     path('check-token/', Check),
     path('delete/<int:id>/', delete_user, name='delete'),
+    path('all/', all),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
